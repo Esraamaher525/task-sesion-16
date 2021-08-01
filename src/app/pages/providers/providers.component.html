@@ -1,0 +1,14 @@
+<div class="d-flex justify-content-center" *ngIf="!dataOfProviders">
+  <div class="spinner-border" role="status">
+  </div>
+</div>
+<section class="row" *ngIf="dataOfProviders">
+    <div class="card col-md-3 m-3" *ngFor="let data of dataOfProviders">
+        <img class="card-img-top" [src]="data.image" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{data.name}}</h5>
+          <p class="card-text">{{data.serviceTitle}}</p>
+          <a  [routerLink]="['single-providers',data.slug]" class="btn btn-primary">{{data.slug}}</a>
+        </div>
+      </div>
+</section>

@@ -1,0 +1,33 @@
+<section class="p-3">
+    <form [formGroup]="login" (ngSubmit)="submit()">
+        <div class="row pb-3">
+            <div class="col-12">
+                <label>email</label>
+                <input class="form-control" formControlName="email">
+                <div class='text-danger font-weight-bold' *ngIf= "submitted ||(f.email.invalid && (f.email.dirty || f.email.touched))">                  
+                    <div *ngIf="f.email.errors?.required">
+                        email is required
+                    </div>
+                    <div *ngIf="f.email.errors?.email">
+                        email is invalid
+                    </div>                    
+                </div>   
+            </div>
+            <div class="col-12">
+                <label>password</label>
+                <input class="form-control" formControlName="password">
+                <div class='text-danger font-weight-bold' *ngIf= "submitted ||(f.password.invalid && (f.password.dirty || f.password.touched))">
+                    <div *ngIf="f.password.errors?.required">
+                        password is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-danger font-weight-bold" *ngIf="error">
+            {{error}}
+        </div>
+        <button class="btn btn-success">login</button>
+        <button class="btn btn-link" type="button" routerLink="/user/register">register</button>
+
+    </form>
+</section>

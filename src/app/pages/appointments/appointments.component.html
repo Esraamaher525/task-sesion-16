@@ -1,0 +1,20 @@
+<div class="d-flex justify-content-center" *ngIf="!filterData">
+    <div class="spinner-border" role="status">
+    </div>
+  </div>
+<section class="row">
+    <div class="card col-3 m-3" *ngFor="let data of filterData">
+        <div class="card-body">
+            <p class="card-text">{{data.title_en}}</p>
+            <p class="card-text">{{data.date}}</p>
+            <div  *ngFor="let appointment of data.appointments ; index as i" >
+                <div [ngClass]="{'text-decoration': appointment.flag == 1}" (click)="book($event,appointment,data.date,data.id)" >             >
+                    <span class="card-text">from :{{appointment.from}}</span>
+                    <span>to : {{appointment.to}}</span>
+                </div>    
+            </div>
+       
+          <a  *ngIf="data.flag==0" [routerLink]="['providers',data.slug]" class="btn btn-primary">{{data.slug}}</a>
+        </div>
+      </div>
+</section>

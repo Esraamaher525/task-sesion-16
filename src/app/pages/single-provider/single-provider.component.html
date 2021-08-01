@@ -1,0 +1,14 @@
+<div class="d-flex justify-content-center" *ngIf="!dataOfSinleProviders">
+  <div class="spinner-border" role="status">
+  </div>
+</div>
+<section class="row" *ngIf="dataOfSinleProviders">
+    <div class="card col-3 m-3" *ngFor="let data of dataOfSinleProviders">
+        <img class="card-img-top" [src]="data.image" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{data.name}}</h5>
+          <p class="card-text">{{data.location}}</p>
+          <a  [routerLink]="['all-appointments',data.id]" class="btn btn-primary">show appointments</a>
+        </div>
+      </div>
+</section>

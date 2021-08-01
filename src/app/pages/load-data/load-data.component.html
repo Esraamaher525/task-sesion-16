@@ -1,0 +1,14 @@
+<div class="d-flex justify-content-center" *ngIf="!dataOfRoles">
+  <div class="spinner-border" role="status">
+  </div>
+</div>
+<section class="row" *ngIf="dataOfRoles">
+    <div class="card col-3 m-3" *ngFor="let data of dataOfRoles">
+        <img class="card-img-top" [src]="data.image" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{data.title}}</h5>
+          <p class="card-text">{{data.statement}}</p>
+          <a  [routerLink]="['providers',data.slug]" class="btn btn-primary">{{data.slug}}</a>
+        </div>
+      </div>
+</section>
